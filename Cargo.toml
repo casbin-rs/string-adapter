@@ -1,7 +1,7 @@
 [package]
 name = "string-adapter"
 version = "1.1.0"
-authors = ["LiuliFox <liuifox@qq.com>"]
+authors = ["LiuliFox <liulifox@qq.com>"]
 edition = "2021"
 license = "Apache-2.0"
 description = "String adapter for casbin-rs"
