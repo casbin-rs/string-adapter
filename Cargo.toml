@@ -1,6 +1,6 @@
 [package]
 name = "string-adapter"
-version = "1.0.0"
+version = "1.1.0"
 authors = ["LiuliFox <liuifox@qq.com>"]
 edition = "2021"
 license = "Apache-2.0"

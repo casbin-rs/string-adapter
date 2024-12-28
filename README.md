@@ -12,7 +12,7 @@ String Adapter is a String adapter for [casbin-rs](https://github.com/casbin/cas
 Add the following to `Cargo.toml`:
 
 ```toml
-string-adapter = { version = "0.1.0", default-features = false, features = ["runtime-tokio"]}
+string-adapter = { version = "1.1.0", default-features = false, features = ["runtime-tokio"]}
 tokio = { version = "1.42.0", features = ["macros"] }
 ```
 
