@@ -1,6 +1,11 @@
 # string-adapter
 
-String Adapter is a String adapter for Casbin-rs. With this library, Casbin can load policy from String.
+[![Crates.io](https://img.shields.io/crates/v/string-adapter.svg)](https://crates.io/crates/string-adapter)
+[![Docs](https://docs.rs/string-adapter/badge.svg)](https://docs.rs/string-adapter)
+[![CI](https://github.com/casbin-rs/string-adapter/actions/workflows/ci.yml/badge.svg)](https://github.com/casbin-rs/string-adapter/actions/workflows/ci.yml)
+[![codecov](https://codecov.io/gh/casbin-rs/string-adapter/branch/master/graph/badge.svg)](https://codecov.io/gh/casbin-rs/string-adapter)
+
+String Adapter is a String adapter for [casbin-rs](https://github.com/casbin/casbin-rs). With this library, Casbin can load policy from String.
 
 ## Install
 
