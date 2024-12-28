@@ -188,24 +188,9 @@ mod tests {
     async fn test_load_policy() {
         let policy = "p, alice, data1, read\np, bob, data2, write";
         let mut adapter = StringAdapter::new(policy);
-        let mut model = DefaultModel::from_str(
-            "[request_definition]
-            r = sub, obj, act
-
-            [policy_definition]
-            p = sub, obj, act
-
-            [role_definition]
-            g = _, _
-
-            [policy_effect]
-            e = some(where (p.eft == allow))
-
-            [matchers]
-            m = r.sub == p.sub && r.obj == p.obj && r.act == p.act",
-        )
-        .await
-        .unwrap();
+        let mut model = DefaultModel::from_file("tests/rbac_model.conf")
+            .await
+            .unwrap();
 
         adapter.load_policy(&mut model).await.unwrap();
         let enforcer = Enforcer::new(model, adapter).await.unwrap();
@@ -220,24 +205,9 @@ mod tests {
     async fn test_save_policy() {
         let policy = "p, alice, data1, read\np, bob, data2, write";
         let mut adapter = StringAdapter::new(policy);
-        let mut model = DefaultModel::from_str(
-            "[request_definition]
-            r = sub, obj, act
-
-            [policy_definition]
-            p = sub, obj, act
-
-            [role_definition]
-            g = _, _
-
-            [policy_effect]
-            e = some(where (p.eft == allow))
-
-            [matchers]
-            m = r.sub == p.sub && r.obj == p.obj && r.act == p.act",
-        )
-        .await
-        .unwrap();
+        let mut model = DefaultModel::from_file("tests/rbac_model.conf")
+            .await
+            .unwrap();
 
         adapter.load_policy(&mut model).await.unwrap();
         adapter.save_policy(&mut model).await.unwrap();
@@ -253,24 +223,9 @@ mod tests {
     async fn test_clear_policy() {
         let policy = "p, alice, data1, read\np, bob, data2, write";
         let mut adapter = StringAdapter::new(policy);
-        let mut model = DefaultModel::from_str(
-            "[request_definition]
-            r = sub, obj, act
-
-            [policy_definition]
-            p = sub, obj, act
-
-            [role_definition]
-            g = _, _
-
-            [policy_effect]
-            e = some(where (p.eft == allow))
-
-            [matchers]
-            m = r.sub == p.sub && r.obj == p.obj && r.act == p.act",
-        )
-        .await
-        .unwrap();
+        let mut model = DefaultModel::from_file("tests/rbac_model.conf")
+            .await
+            .unwrap();
 
         adapter.load_policy(&mut model).await.unwrap();
         adapter.clear_policy().await.unwrap();
@@ -284,24 +239,9 @@ mod tests {
     async fn test_is_filtered() {
         let policy = "p, alice, data1, read\np, bob, data2, write";
         let mut adapter = StringAdapter::new(policy);
-        let mut model = DefaultModel::from_str(
-            "[request_definition]
-            r = sub, obj, act
-
-            [policy_definition]
-            p = sub, obj, act
-
-            [role_definition]
-            g = _, _
-
-            [policy_effect]
-            e = some(where (p.eft == allow))
-
-            [matchers]
-            m = r.sub == p.sub && r.obj == p.obj && r.act == p.act",
-        )
-        .await
-        .unwrap();
+        let mut model = DefaultModel::from_file("tests/rbac_model.conf")
+            .await
+            .unwrap();
 
         let filter = Filter {
             p: vec!["alice"],
@@ -312,6 +252,7 @@ mod tests {
             .load_filtered_policy(&mut model, filter)
             .await
             .unwrap();
+
         assert!(adapter.is_filtered());
     }
 }
