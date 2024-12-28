@@ -1,7 +1,13 @@
 [package]
 name = "string-adapter"
-version = "0.1.0"
+version = "1.0.0"
+authors = ["LiuliFox <liuifox@qq.com>"]
 edition = "2021"
+license = "Apache-2.0"
+description = "String adapter for casbin-rs"
+homepage= "https://github.com/casbin-rs/string-adapter"
+repository = "https://github.com/casbin-rs/string-adapter"
+readme= "README.md"
 
 [dependencies]
 async-std = { version = "1.13.0", default-features = false, optional = true }
